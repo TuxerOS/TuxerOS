@@ -11,7 +11,7 @@ void __attribute__((section(".entry"))) start(uint16_t bootDrive)
 
     clrscr();
 
-    printf("TuxerOS Version ~0.0.1");
+    printf("TuxerOS Version dev0.0.3");
 
 end:
     for (;;);

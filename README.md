@@ -16,5 +16,11 @@ not really much right now
 ## **credits**
 Tutorial: [nanobyte](https://www.youtube.com/channel/UCSPIuWADJIMIf9Erf--XAsA)
 
+## version meaning?
+- dev: In Development
+- ~: Alpha
+- *: Beta
+- r: release
+
 ### license
 Apache License Version 2.0
