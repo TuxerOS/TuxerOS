@@ -4,14 +4,15 @@
             "name": "GCC",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/toolchain/i686-elf/lib/gcc/i686-elf/13.2.0/include/**"
+                "${workspaceFolder}/toolchain/i686-elf/lib/gcc/i686-elf/13.2.0/**"
             ],
             "defines": [],
             "cStandard": "c99",
+            "compilerPath": "${workspaceFolder}/toolchain/i686-elf/bin/i686-elf-gcc",
             "cppStandard": "c++14",
             "intelliSenseMode": "linux-gcc-x86",
             "compilerArgs": [
-                "-std=c99 -ffreestanding -nostdlib"
+                "-std=c99", "-ffreestanding", "-nostdlib"
             ]
         }
     ],
