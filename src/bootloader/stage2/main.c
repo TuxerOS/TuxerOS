@@ -39,7 +39,6 @@ void __attribute__((cdecl)) start(uint16_t bootDrive)
     }
     FAT_Close(fd);
 
-
     // execute kernel
     KernelStart kernelStart = (KernelStart)Kernel;
     kernelStart();

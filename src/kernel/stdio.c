@@ -1,4 +1,4 @@
-#include "stdio.h"
+#include <stdio.h>
 #include <arch/i686/io.h>
 
 #include <stdarg.h>
@@ -6,7 +6,7 @@
 
 const unsigned SCREEN_WIDTH = 80;
 const unsigned SCREEN_HEIGHT = 25;
-const uint8_t DEFAULT_COLOR = 0x0F;
+const uint8_t DEFAULT_COLOR = 0x7;
 
 uint8_t* g_ScreenBuffer = (uint8_t*)0xB8000;
 int g_ScreenX = 0, g_ScreenY = 0;
@@ -35,10 +35,10 @@ void setcursor(int x, int y)
 {
     int pos = y * SCREEN_WIDTH + x;
 
-    x86_outb(0x3D4, 0x0F);
-    x86_outb(0x3D5, (uint8_t)(pos & 0xFF));
-    x86_outb(0x3D4, 0x0E);
-    x86_outb(0x3D5, (uint8_t)((pos >> 8) & 0xFF));
+    i686_outb(0x3D4, 0x0F);
+    i686_outb(0x3D5, (uint8_t)(pos & 0xFF));
+    i686_outb(0x3D4, 0x0E);
+    i686_outb(0x3D5, (uint8_t)((pos >> 8) & 0xFF));
 }
 
 void clrscr()
@@ -48,6 +48,19 @@ void clrscr()
         {
             putchr(x, y, '\0');
             putcolor(x, y, DEFAULT_COLOR);
+        }
+
+    g_ScreenX = 0;
+    g_ScreenY = 0;
+    setcursor(g_ScreenX, g_ScreenY);
+}
+
+void putColorWholeScreen(uint8_t color) {
+    for (int y = 0; y < SCREEN_HEIGHT; y++)
+        for (int x = 0; x < SCREEN_WIDTH; x++)
+        {
+            putchr(x, y, '\0');
+            putcolor(x, y, color);
         }
 
     g_ScreenX = 0;
@@ -311,8 +324,4 @@ void print_buffer(const char* msg, const void* buffer, uint32_t count)
         putc(g_HexChars[u8Buffer[i] & 0xF]);
     }
     puts("\n");
-}
-
-const char* input() {
-    
 }

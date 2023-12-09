@@ -1,3 +1,3 @@
 #pragma once
 
-void HAL_Initilaize();
+void HAL_Initialize();
