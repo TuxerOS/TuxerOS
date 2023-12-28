@@ -7,7 +7,6 @@
 extern uint8_t __bss_start;
 extern uint8_t __end;
 
-void crash_me();
 
 void __attribute__((section(".entry"))) start(uint16_t bootDrive)
 {
@@ -15,11 +14,12 @@ void __attribute__((section(".entry"))) start(uint16_t bootDrive)
 
     HAL_Initialize();
 
-    clrscr();
+    //clrscr();
 
+    printf("\n\r");
     printf("Hello from kernel!\n");
 
-    crash_me();
+    //crash_me();
 
 end:
     for (;;);

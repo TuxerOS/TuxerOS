@@ -1,6 +1,10 @@
 {
     "files.associations": {
+        "*.c": "c",
+        "*.h": "c",
+        "*.lnk": "linkerscript",
         "x86.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "lambda-init-vla1.C": "cpp"
     }
 }
